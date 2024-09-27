@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Поиск банка по БИК и SWIFT</title>
+</head>
+<body>
+  <h1>Поиск банка по БИК и SWIFT</h1>
+  <form method="POST" action="/">
+    <label for="bic">БИК:</label>
+    <input type="text" id="bic" name="bic">
+
+    <button type="submit">Поиск</button>
+  </form>
+  {% if data %}
+    <h2>Информация о финансовой организации</h2>
+    <p>Название: {{ data["name"] }}</p>
+    <p>Адрес: {{ data["address"] }}</p>
+    <p>Корп счет: {{ data["score"] }}</p>
+    <p>БИК: {{ data["bic"] }}</p>
+    <p>SWIFT: {{ data["swift"] }}</p>
+  {% elif error %}
+    <p>Ошибка: {{ error }}</p>
+  {% endif %}
+</body>
+</html>
